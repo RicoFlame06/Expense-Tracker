@@ -1,10 +1,6 @@
-
-
 def expenseTracker():
 
-    def expensesList():
-        expenses = []
-        return expenses        
+    expenses = []
 
     def menu():
 
@@ -25,11 +21,7 @@ def expenseTracker():
                 print("Enter number 1-4")
 
 
-
-
     def addExpenses(): 
-
-        expenses = expensesList()
 
         while True:
 
@@ -45,10 +37,9 @@ def expenseTracker():
                 expenses.append(category)
 
                 print("Items Added!")
-
+                menu()
                 print(expenses)
 
-                return expenses
             
             except ValueError:
 
@@ -58,14 +49,11 @@ def expenseTracker():
 
 
     def viewExpenses():
-        expenses = addExpenses()
         print(expenses)
 
+        menu()
 
-    def viewTotalSpent():
-        expenses = addExpenses()
 
-        expenses[2]
 
     userOption = menu()
 
