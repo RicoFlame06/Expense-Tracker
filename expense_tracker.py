@@ -1,58 +1,80 @@
-def expenseTracker():
 
-    expenses = []
+expenses = []
 
-    def menu():
+def menu():
 
-        print("Welcome to the Expense Tracker")
+    print("Welcome to the Expense Tracker")
 
-        print("1: Add Expenses")
-        print("2: View Expenses")
-        print("3: View Total Spent")
-        print("4: Exit")
+    print("1: Add Expenses")
+    print("2: View Expenses")
+    print("3: View Total Spent")
+    print("4: Exit")
 
-        while True:
+    while True:
         
-            try:
-                user_option = int(input("Pick options 1-4: "))
-                return user_option
+        try:
+            user_option = int(input("Pick options 1-4: "))
+            return user_option
 
-            except ValueError:
-                print("Enter number 1-4")
+        except ValueError:
+            print("Enter number 1-4")
 
 
-    def addExpenses(): 
+def addExpenses(): 
 
-        while True:
+    while True:
 
-            try:
+        try:
 
-                itemName = input("Item Name: ")
-                expenses.append(itemName)
+            itemName = input("Item Name: ")
 
-                price = int(input("Price: "))
-                expenses.append(price)
+            price = int(input("Price: "))
 
-                category = input("Category: ")
-                expenses.append(category)
+            category = input("Category: ")
 
-                print("Items Added!")
-                menu()
-                print(expenses)
+            expense = [itemName, price, category]  # New list to make seperate lists possible inside expenses list
+
+            expenses.append(expense) # New list added to the original list
+
+            print("Items Added!")
+                
+            break
 
             
-            except ValueError:
+        except ValueError:
 
-                print("Invalid Input")
-
-
+            print("Invalid Input")
 
 
-    def viewExpenses():
-        print(expenses)
 
-        menu()
 
+def viewExpenses(): # Views each expense (reciept)
+        
+    for expense in expenses: #Iterates and loops through expenses for expense lists
+        print("")
+        print("Item Name: ",expense[0])
+        print("Price: ",expense[1])
+        print("Category: ",expense[2])
+        print("")
+
+
+
+def getTotalSpent():
+             
+    total = 0
+
+    for expense in expenses:
+
+        total = total + expense[1]
+        print("Total Spent: ")
+        print("£", total)
+
+
+
+             
+          
+  
+while True: # Continues after user completes an option
 
 
     userOption = menu()
@@ -67,7 +89,8 @@ def expenseTracker():
 
         viewExpenses()
 
+    elif userOption == 3:
 
-expenseTracker()
+        getTotalSpent()
 
 
