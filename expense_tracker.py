@@ -3,12 +3,16 @@ expenses = []
 
 def menu():
 
+    print("")
+
     print("Welcome to the Expense Tracker")
 
     print("1: Add Expenses")
     print("2: View Expenses")
     print("3: View Total Spent")
     print("4: Exit")
+
+    print("")
 
     while True:
         
@@ -18,6 +22,7 @@ def menu():
 
         except ValueError:
             print("Enter number 1-4")
+            
 
 
 def addExpenses(): 
@@ -45,16 +50,23 @@ def addExpenses():
 
             print("Invalid Input")
 
+  
+
 
 
 
 def viewExpenses(): # Views each expense (reciept)
-        
+
+    print("Current Expenses:")   
+
     for expense in expenses: #Iterates and loops through expenses for expense lists
+
         print("")
+
         print("Item Name: ",expense[0])
         print("Price: ",expense[1])
         print("Category: ",expense[2])
+
         print("")
 
 
@@ -66,8 +78,10 @@ def getTotalSpent():
     for expense in expenses:
 
         total = total + expense[1]
-        print("Total Spent: ")
-        print("£", total)
+
+    print("Total Spent: ")
+
+    print("£", total)
 
 
 
@@ -92,5 +106,9 @@ while True: # Continues after user completes an option
     elif userOption == 3:
 
         getTotalSpent()
+
+    else:
+        print("Goodbye")
+        break
 
 
